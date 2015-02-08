@@ -1,0 +1,4 @@
+1. boolean anyMatch(Predicate<? super T> predicate);
+	-> eager, because it returns an actual value
+2. Stream<T> limit(long maxSize);
+	-> lazy, because it returns a stream

@@ -1,4 +1,4 @@
-package lambdas_excercises.chapter_2;
+package lambdasexcercises.chapter2;
 
 import static com.insightfullogic.lambdabehave.Suite.describe;
 import static lambdasexcercises.chapter2.Question_1_2.ABS;
@@ -15,12 +15,12 @@ import com.insightfullogic.lambdabehave.JunitSuiteRunner;
 
 @RunWith(JunitSuiteRunner.class)
 public class Question_1_2_Spec {{
-	
+
 		final int maxValue = Integer.MAX_VALUE;
 
 		Question_1_2 calculator = new Question_1_2();
 
-		describe("a execulator", it -> {
+		describe("a calculator", it -> {
 
 			it.should("abs(inv(1)) = 1", expect -> {
 				expect.that(calculator.exec(ABS, calculator.exec(INV, 1))).is(1);

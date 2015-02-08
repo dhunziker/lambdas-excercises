@@ -1,0 +1,4 @@
+1. boolean anyMatch(Predicate<? super T> predicate);
+	Yes, it's a higher order function taking a Predicate as an argument
+2. Stream<T> limit(long maxSize);
+	No, argument is a primitive type
