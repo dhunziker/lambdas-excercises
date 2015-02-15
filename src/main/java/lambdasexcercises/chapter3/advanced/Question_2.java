@@ -12,7 +12,7 @@ public class Question_2 {
 			System.out.println("Accumulate: " + x + " : " + y);
 			ArrayList<R> acc = new ArrayList<>(x);
 			if (predicate.test(y)) {
-				acc.add((R) y);
+				acc.add(y);
 			}
 			return acc;
 		}, (List<R> x, List<R> y) -> { // This is never called for sequential streams
