@@ -5,8 +5,7 @@ import java.util.function.Predicate;
 public class Question_4 {
 
 	public static void main(String[] args) {
-		// The method check(Predicate<Integer>) is ambiguous for the type
-		// Question_4
+		// The method check(Predicate<Integer>) is ambiguous for the type Question_4
 		// new Question_4().check(x -> x > 5);
 	}
 

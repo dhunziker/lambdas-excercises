@@ -17,7 +17,7 @@ public class Question_2_Spec {{
 
 		Artist theBeatles = new Artist("The Beatles", "Liverpool");
 
-		Artist various = new Artist("Various", "Liverpool & Nashville", kingsOfLeon, theBeatles);
+		Artist various = new Artist("Various", "Liverpool & Nashville", Arrays.asList(kingsOfLeon, theBeatles));
 
 		Question_2 q2 = new Question_2();
 
