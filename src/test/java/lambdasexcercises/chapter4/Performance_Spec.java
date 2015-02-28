@@ -2,8 +2,8 @@ package lambdasexcercises.chapter4;
 
 import static com.insightfullogic.lambdabehave.Suite.describe;
 import static java.util.stream.Collectors.joining;
+import static lambdasexcercises.domain.SampleData.KINGS_OF_LEON_MEMBERS;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -16,13 +16,7 @@ import com.insightfullogic.lambdabehave.JunitSuiteRunner;
 @RunWith(JunitSuiteRunner.class)
 public class Performance_Spec {{
 
-		Artist kingsOfLeon = new Artist("Kings of Leon", "Nashville", Arrays.asList(
-				new Artist("Caleb Followill", "Nashville"),
-				new Artist("Matthew Followill", "Nashville"),
-				new Artist("Jared Followill", "Nashville"),
-				new Artist("Nathan Followill", "Nashville")));
-
-		LiveAtTheO2 liveAtTheO2 = new LiveAtTheO2(kingsOfLeon);
+		LiveAtTheO2 liveAtTheO2 = new LiveAtTheO2(KINGS_OF_LEON_MEMBERS);
 
 		describe("performance", it -> {
 			it.should("return band and its members", expect -> {
@@ -31,26 +25,24 @@ public class Performance_Spec {{
 			});
 		});
 
+}}
+
+class LiveAtTheO2 implements Performance {
+
+	private List<Artist> artists;
+
+	public LiveAtTheO2(List<Artist> artists) {
+		this.artists = artists;
 	}
 
-	static class LiveAtTheO2 implements Performance {
+	@Override
+	public String getName() {
+		return "Live @ the O2";
+	}
 
-		private List<Artist> artists;
-
-		public LiveAtTheO2(Artist... artists) {
-			this.artists = Arrays.asList(artists);
-		}
-
-		@Override
-		public String getName() {
-			return "Live @ the O2";
-		}
-
-		@Override
-		public Stream<Artist> getMusicians() {
-			return artists.stream();
-		}
-
+	@Override
+	public Stream<Artist> getMusicians() {
+		return artists.stream();
 	}
 
 }

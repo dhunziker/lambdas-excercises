@@ -12,7 +12,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collector;
 
-public class GroupingBy<T, K> implements Collector<T, Map<K, List<T>>, Map<K, List<T>>> {
+public class GroupingBy<T extends K, K> implements Collector<T, Map<K, List<T>>, Map<K, List<T>>> {
 
 	@Override
 	public Supplier<Map<K, List<T>>> supplier() {
@@ -20,7 +20,6 @@ public class GroupingBy<T, K> implements Collector<T, Map<K, List<T>>, Map<K, Li
 		return () -> new HashMap<>();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public BiConsumer<Map<K, List<T>>, T> accumulator() {
 		return (x, y) -> {

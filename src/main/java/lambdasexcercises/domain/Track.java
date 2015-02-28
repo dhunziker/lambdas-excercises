@@ -2,17 +2,17 @@ package lambdasexcercises.domain;
 
 public class Track {
 
-	private String title;
+	private final String name;
 
-	private int length;
+	private final int length;
 
-	public Track(String title, int length) {
-		this.title = title;
+	public Track(String name, int length) {
+		this.name = name;
 		this.length = length;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getName() {
+		return name;
 	}
 
 	public int getLength() {

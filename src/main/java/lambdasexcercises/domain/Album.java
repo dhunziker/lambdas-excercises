@@ -1,6 +1,5 @@
 package lambdasexcercises.domain;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -8,26 +7,26 @@ public class Album {
 
 	private String name;
 
-	private Artist artist;
-
 	private List<Track> tracks;
 
-	public Album(String name, Artist artist, Track... tracks) {
+	private List<Artist> artists;
+
+	public Album(String name, List<Track> tracks, List<Artist> artists) {
 		this.name = name;
-		this.artist = artist;
-		this.tracks = Arrays.asList(tracks);
+		this.tracks = tracks;
+		this.artists = artists;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public Artist getArtist() {
-		return artist;
-	}
-
 	public Stream<Track> getTracks() {
 		return tracks.stream();
+	}
+
+	public Stream<Artist> getArtists() {
+		return artists.stream();
 	}
 
 }

@@ -1,6 +1,7 @@
 package lambdasexcercises.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -8,30 +9,30 @@ public class Artist {
 
 	private String name;
 
-	private String nationality;
-
 	private List<Artist> members;
 
+	private String nationality;
+
 	public Artist(String name, String nationality) {
-		this(name, nationality, new ArrayList<>());
+		this(name, Collections.emptyList(), nationality);
 	}
 
-	public Artist(String name, String nationality, List<Artist> members) {
+	public Artist(String name, List<Artist> members, String nationality) {
 		this.name = name;
+		this.members = new ArrayList<>(members);
 		this.nationality = nationality;
-		this.members = members;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public String getNationality() {
-		return nationality;
-	}
-
 	public Stream<Artist> getMembers() {
 		return members.stream();
+	}
+
+	public String getNationality() {
+		return nationality;
 	}
 
 }
