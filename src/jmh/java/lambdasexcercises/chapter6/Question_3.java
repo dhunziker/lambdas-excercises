@@ -60,7 +60,7 @@ public class Question_3 {
 
 	@Benchmark
 	public int serialFastSumOfSquares() {
-		return arrayListOfNumbers.parallelStream().mapToInt(x -> x * x).sum();
+		return arrayListOfNumbers.stream().mapToInt(x -> x * x).sum();
 	}
 
 }
