@@ -12,7 +12,7 @@ public class Question_2 {
 	private static final ThreadLocal<DateFormat> TL = ThreadLocal
 			.withInitial(() -> new SimpleDateFormat("dd-MMM-yyyy"));
 
-	public Result formatDate(LocalDate date) {
+	public static Result formatDate(LocalDate date) {
 		Instant instant = date.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
 		DateFormat format = TL.get();
 		String formattedDate = format.format(Date.from(instant));

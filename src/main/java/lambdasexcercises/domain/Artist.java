@@ -35,4 +35,8 @@ public class Artist {
 		return nationality;
 	}
 
+	public int length() {
+		return name.length();
+	}
+
 }

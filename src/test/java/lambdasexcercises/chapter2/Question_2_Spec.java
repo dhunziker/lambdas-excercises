@@ -20,10 +20,10 @@ import com.insightfullogic.lambdabehave.JunitSuiteRunner;
 @RunWith(JunitSuiteRunner.class)
 public class Question_2_Spec {
 
-	private static Result formatDate(Question_2 formatter, LocalDate date) throws InterruptedException,
+	private static Result formatDate(LocalDate date) throws InterruptedException,
 			ExecutionException {
 		ExecutorService executor = Executors.newFixedThreadPool(1);
-		Future<Result> f1 = executor.submit(() -> formatter.formatDate(date));
+		Future<Result> f1 = executor.submit(() -> Question_2.formatDate(date));
 		executor.shutdown();
 		return f1.get();
 	}
@@ -31,22 +31,20 @@ public class Question_2_Spec {
 	{
 		describe("a date formatter", it -> {
 
-			Question_2 formatter = new Question_2();
-
 			it.should("today's date is 08-Feb-2015", expect -> {
 				LocalDate date = LocalDate.of(2015, Month.FEBRUARY, 8);
-				expect.that(formatDate(formatter, date).getFormattedDate()).is("08-Feb-2015");
+				expect.that(formatDate(date).getFormattedDate()).is("08-Feb-2015");
 			});
 
 			it.should("epoch day 0 is 01-Jan-1970", expect -> {
 				LocalDate date = LocalDate.ofEpochDay(0);
-				expect.that(formatDate(formatter, date).getFormattedDate()).is("01-Jan-1970");
+				expect.that(formatDate(date).getFormattedDate()).is("01-Jan-1970");
 			});
 
 			it.should("use separate format instances for each thread", expect -> {
 				LocalDate date = LocalDate.ofEpochDay(0);
-				Result r1 = formatDate(formatter, date);
-				Result r2 = formatDate(formatter, date);
+				Result r1 = formatDate(date);
+				Result r2 = formatDate(date);
 				expect.that(r1.getFormatIdentity()).is(not(equalTo(r2.getFormatIdentity())));
 				expect.that(r1.getFormattedDate()).isEqualTo(r2.getFormattedDate());
 			});

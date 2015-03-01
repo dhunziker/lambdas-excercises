@@ -16,12 +16,10 @@ public class Question_2_Spec {{
 
 		List<Integer> input = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
 
-		Question_2 q2 = new Question_2();
-
-		describe("question 2", it -> {
+		describe("chapter 3 - advanced question 2", it -> {
 			it.should("divisible by 2", expect -> {
 				Predicate<Integer> predicate = x -> x % 2 == 0;
-				expect.that(q2.filter(input.parallelStream(), predicate)).is(
+				expect.that(Question_2.filter(input.parallelStream(), predicate)).is(
 						input.parallelStream().filter(predicate).collect(toList()));
 			});
 		});

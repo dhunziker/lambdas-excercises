@@ -16,12 +16,10 @@ public class Question_1_Spec {{
 
 		List<Integer> input = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
 
-		Question_1 q1 = new Question_1();
-
-		describe("question 1", it -> {
+		describe("chapter 3 - advanced question 1", it -> {
 			it.should("multiply each element by 3", expect -> {
 				Function<Integer, Integer> mapper = x -> x * 3;
-				expect.that(q1.map(input.parallelStream(), mapper)).is(
+				expect.that(Question_1.map(input.parallelStream(), mapper)).is(
 						input.parallelStream().map(mapper).collect(toList()));
 			});
 		});

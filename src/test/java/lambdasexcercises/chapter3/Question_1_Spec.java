@@ -23,21 +23,19 @@ public class Question_1_Spec {{
 
 		List<Album> albums = Arrays.asList(YOUNG_AND_YOUNG_MANHOOD, PLEASE_PLEASE_ME);
 
-		Question_1 q1 = new Question_1();
-
-		describe("question 1", it -> {
+		describe("chapter 3 - question 1", it -> {
 			it.should("add up numbers",	expect -> {
-				expect.that(q1.addUp(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).stream())).is(
+				expect.that(Question_1.addUp(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).stream())).is(
 						(10 * (10 + 1)) / 2);
 			});
 
 			it.should("reduce artists to name and place of origin",	expect -> {
-				expect.that(q1.reduceArtists(artists)).contains("The Beatles", "Liverpool",
+				expect.that(Question_1.getNamesAndOrigins(artists)).contains("The Beatles", "Liverpool",
 						"Kings of Leon", "Nashville");
 			});
 
 			it.should("filter for albums with more than 3 tracks", expect -> {
-				expect.that(q1.filterAlbums(albums).get(0).getName()).is("Youth & Young Manhood");
+				expect.that(Question_1.getAlbumsWithAtMostThreeTracks(albums).get(0).getName()).is("Youth & Young Manhood");
 			});
 		});
 

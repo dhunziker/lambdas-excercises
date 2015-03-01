@@ -12,7 +12,7 @@ import com.insightfullogic.lambdabehave.JunitSuiteRunner;
 @RunWith(JunitSuiteRunner.class)
 public class Question_2_Spec {{
 
-		describe("question 2", it -> {
+		describe("chapter 6 - question 2", it -> {
 			it.should("multiply numbers and result by 5", expect -> {
 				List<Integer> numbers = Arrays.asList(1, 2, 3);
 				int result = Question_2.multiplyThrough(numbers);

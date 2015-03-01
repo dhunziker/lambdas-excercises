@@ -17,11 +17,11 @@ public class Question_1_2 {
 
 	public static final BiFunction<Integer, Integer, Double> DIV = (x, y) -> x / y.doubleValue();
 
-	public <T, R> R exec(Function<T, R> operation, T operand) {
+	public static <T, R> R exec(Function<T, R> operation, T operand) {
 		return operation.apply(operand);
 	}
 
-	public <T, U, R> R exec(BiFunction<T, U, R> operation, T operand1, U operand2) {
+	public static <T, U, R> R exec(BiFunction<T, U, R> operation, T operand1, U operand2) {
 		return operation.apply(operand1, operand2);
 	}
 

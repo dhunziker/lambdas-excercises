@@ -16,32 +16,30 @@ import com.insightfullogic.lambdabehave.JunitSuiteRunner;
 @RunWith(JunitSuiteRunner.class)
 public class Question_2_Spec {{
 
-	List<String> names = THE_BEATLES_MEMBERS.stream().map(Artist::getName).collect(toList());
+		List<Artist> artists = THE_BEATLES.getMembers().collect(toList());
 
-	Question_2 q2 = new Question_2();
+		describe("chapter 5 - question 2", it -> {
+			it.should("find longest name using collector", expect -> {
+				expect.that(Question_2.byCollecting(artists).getName()).is("George Harrison");
+			});
 
-	describe("question 2", it -> {
-		it.should("find longest name using collector", expect -> {
-			expect.that(q2.findLongestName1(names)).is("Stuart Sutcliffe");
+			it.should("find longest name using reduce", expect -> {
+				expect.that(Question_2.byReduce(artists).getName()).is("George Harrison");
+			});
+
+			it.should("count words", expect -> {
+				List<String> words = Arrays.asList("John", "Paul", "George", "John", "Paul", "John");
+				expect.that(Question_2.countWords(words).get("John").intValue()).is(3);
+				expect.that(Question_2.countWords(words).get("Paul").intValue()).is(2);
+				expect.that(Question_2.countWords(words).get("George").intValue()).is(1);
+			});
+
+			it.should("count words using a custom collector", expect -> {
+				List<String> words = Arrays.asList("John", "Paul", "George", "John", "Paul", "John");
+				expect.that(Question_2.groupByWord(words).get("John").size()).is(3);
+				expect.that(Question_2.groupByWord(words).get("Paul").size()).is(2);
+				expect.that(Question_2.groupByWord(words).get("George").size()).is(1);
+			});
 		});
-
-		it.should("find longest name using reduce", expect -> {
-			expect.that(q2.findLongestName2(names)).is("Stuart Sutcliffe");
-		});
-
-		it.should("count words", expect -> {
-			List<String> words = Arrays.asList("John", "Paul", "George", "John", "Paul", "John");
-			expect.that(q2.countWords(words).get("John").intValue()).is(3);
-			expect.that(q2.countWords(words).get("Paul").intValue()).is(2);
-			expect.that(q2.countWords(words).get("George").intValue()).is(1);
-		});
-
-		it.should("count words using a custom collector", expect -> {
-			List<String> words = Arrays.asList("John", "Paul", "George", "John", "Paul", "John");
-			expect.that(q2.groupByWord(words).get("John").size()).is(3);
-			expect.that(q2.groupByWord(words).get("Paul").size()).is(2);
-			expect.that(q2.groupByWord(words).get("George").size()).is(1);
-		});
-	});
 
 }}

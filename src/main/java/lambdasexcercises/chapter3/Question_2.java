@@ -10,7 +10,7 @@ import lambdasexcercises.domain.Artist;
 
 public class Question_2 {
 
-	public int externalIteration(List<Artist> artists) {
+	public static int externalIteration(List<Artist> artists) {
 		int totalMembers = 0;
 		for (Artist artist : artists) {
 			Stream<Artist> members = artist.getMembers();
@@ -19,11 +19,11 @@ public class Question_2 {
 		return totalMembers;
 	}
 
-	public int internalIterationMap(List<Artist> artists) {
+	public static int countBandMembersInternalMap(List<Artist> artists) {
 		return artists.stream().map(Artist::getMembers).collect(summingInt(members -> (int) members.count()));
 	}
 
-	public int internalIterationFlatMap(List<Artist> artists) {
+	public static int countBandMembersInternalFlatMap(List<Artist> artists) {
 		return artists.stream().flatMap(Artist::getMembers).collect(counting()).intValue();
 	}
 

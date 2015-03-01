@@ -24,7 +24,7 @@ public class GroupingBy<T extends K, K> implements Collector<T, Map<K, List<T>>,
 	public BiConsumer<Map<K, List<T>>, T> accumulator() {
 		return (x, y) -> {
 			System.out.println("Accumulate: " + x + " [" + y + "]");
-			x.compute((K) y, (k, v) -> {
+			x.compute(y, (k, v) -> {
 				if (v == null) {
 					v = new ArrayList<>();
 				}

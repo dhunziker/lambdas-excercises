@@ -12,19 +12,17 @@ import com.insightfullogic.lambdabehave.JunitSuiteRunner;
 @RunWith(JunitSuiteRunner.class)
 public class Question_2_Spec {{
 
-		Question_2 q2 = new Question_2();
-
-		describe("question 2", it -> {
+		describe("chapter 3 - question 2", it -> {
 			it.should("external iteration", expect -> {
-				expect.that(q2.externalIteration(Arrays.asList(KINGS_OF_LEON))).is(4);
+				expect.that(Question_2.externalIteration(Arrays.asList(KINGS_OF_LEON))).is(4);
 			});
 
 			it.should("internal iteration using map", expect -> {
-				expect.that(q2.internalIterationMap(Arrays.asList(KINGS_OF_LEON))).is(4);
+				expect.that(Question_2.countBandMembersInternalMap(Arrays.asList(KINGS_OF_LEON))).is(4);
 			});
 
 			it.should("internal iteration using flatMap", expect -> {
-				expect.that(q2.internalIterationFlatMap(Arrays.asList(KINGS_OF_LEON))).is(4);
+				expect.that(Question_2.countBandMembersInternalFlatMap(Arrays.asList(KINGS_OF_LEON))).is(4);
 			});
 		});
 

@@ -11,7 +11,7 @@ import com.insightfullogic.lambdabehave.JunitSuiteRunner;
 @RunWith(JunitSuiteRunner.class)
 public class Question_1_Spec {{
 
-		describe("question 1", it -> {
+		describe("chapter 6 - question 1", it -> {
 			it.should("sum squares", expect -> {
 				IntStream range = IntStream.range(0, 100);
 				expect.that(Question_1.sumOfSquares(range)).is(328350);

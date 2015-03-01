@@ -5,7 +5,7 @@ sourceCompatibility = 1.8
 version = '1.0'
 jar {
     manifest {
-        attributes 'Implementation-Title': 'Gradle Quickstart', 'Implementation-Version': version
+        attributes 'Implementation-Title': 'Java 8 Lambdas: Pragmatic Functional Programming', 'Implementation-Version': version
     }
 }
 
@@ -29,8 +29,10 @@ project.sourceSets.jmh {
 }
 
 dependencies {
-	testCompile group: 'junit', name: 'junit', version: '4.11'
-	testCompile group: 'com.insightfullogic', name: 'lambda-behave', version: '0.4-SNAPSHOT'
+	testCompile (
+		[group: 'junit', name: 'junit', version: '4.11'],
+		[group: 'com.insightfullogic', name: 'lambda-behave', version: '0.4-SNAPSHOT']
+	)
 	compile (
 		[group: 'org.openjdk.jmh', name: 'jmh-core', version: '1.6'],
 		[group: 'org.openjdk.jmh', name: 'jmh-generator-annprocess', version: '1.6']

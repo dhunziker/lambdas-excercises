@@ -7,15 +7,15 @@ import java.util.stream.Stream;
 
 public class Question_2 {
 
-	public <R> List<R> filter(Stream<R> stream, Predicate<? super R> predicate) {
-		return stream.reduce(new ArrayList<R>(), (List<R> x, R y) -> {
+	public static <I> List<I> filter(Stream<I> stream, Predicate<I> predicate) {
+		return stream.reduce(new ArrayList<I>(), (List<I> x, I y) -> {
 			System.out.println("Accumulate: " + x + " : " + y);
-			ArrayList<R> acc = new ArrayList<>(x);
+			ArrayList<I> acc = new ArrayList<>(x);
 			if (predicate.test(y)) {
 				acc.add(y);
 			}
 			return acc;
-		}, (List<R> x, List<R> y) -> { // This is never called for sequential streams
+		}, (List<I> x, List<I> y) -> { // This is never called for sequential streams
 			System.out.println("Combine: " + x + " : " + y);
 			x.addAll(y);
 			return x;
