@@ -31,7 +31,7 @@ project.sourceSets.jmh {
 dependencies {
 	testCompile (
 		[group: 'junit', name: 'junit', version: '4.11'],
-		[group: 'com.insightfullogic', name: 'lambda-behave', version: '0.4-SNAPSHOT']
+		[group: 'com.insightfullogic', name: 'lambda-behave', version: '0.3']
 	)
 	compile (
 		[group: 'org.openjdk.jmh', name: 'jmh-core', version: '1.6'],
